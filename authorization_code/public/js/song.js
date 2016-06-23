@@ -87,8 +87,6 @@ $(document).ready(function () {
                                                                 $('#infoHeader').empty();
                                                                 $('#infoHeader').append("Upcoming Songs");
                                                                 $('#results').append("<header alt='0' class='songLinkCurrent'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
-                                                                $(".songLinkClick").eq(i).attr("id", "songLinkClick" + i);
-                                                                $("header#songLinkClick" + i).on("click", songLinkClick());
                                                             }
                                                             $("#filename").val("");
 
