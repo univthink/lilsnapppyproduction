@@ -19,7 +19,7 @@ $(document).ready(function () {
     var count = {};
     $("#filename").keypress(function (event) {
         if (event.which === 13) {
-            if (localStorage.getItem("lastFM") === null || localStorage.getItem("lastFM") === "") {
+            if (localStorage.getItem("lastFM") === null || localStorage.getItem("lastFM") === "null") {
                 var userPrompt = prompt("Enter Your LastFM Username");
                 localStorage.setItem("lastFM", userPrompt);
             }
