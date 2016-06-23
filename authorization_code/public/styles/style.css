@@ -78,6 +78,7 @@ visibility: hidden;
 }
 body {width: 100%; height: 0px !important;}
 html {width: 100%; background-color: #443f3f; height: 100vh !important;}
+div#searchboxContainer {position:fixed !important; width: 100% !important; opacity: 1;}
 #searchBox, #filename {
 width: 100%;
 border: 0;
@@ -187,3 +188,4 @@ button#setDefaultPlaylist {
 width: 347px;
 margin-top: 20px;
 }
+div#searchboxContainer {position:fixed !important; width: 100% !important; opacity: 1;}

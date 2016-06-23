@@ -16,9 +16,10 @@ $(document).ready(function () {
     var userData;
     var jData;
     var partyPlaylist;
+    var count = {};
     $("#filename").keypress(function (event) {
         if (event.which === 13) {
-            if (localStorage['lastFM'] !== "null") {
+            if (localStorage.getItem("lastFM") != "null" || localStorage.getItem("lastFM") != "") {
                 partyPlaylist = [];
                 baseURL = "https://api.spotify.com/v1/users/";
                 userID = $('#userID2').html();
@@ -53,7 +54,7 @@ $(document).ready(function () {
                                     localStorage['Snapster'] = data.items[partyPlaylist].id;
                                     Snapster = localStorage['Snapster'];
                                     $("#results").empty();
-
+                                    
                                     for (i = 0; i < myData.tracks.items.length; i++) {
                                         $('#results').append("<header class='songLink'>" + myData.tracks.items[i].artists[0].name + "<br />" + myData.tracks.items[i].name + "</header><br/>");
                                         $(".songLink").eq(i).attr("id", "songLink" + i);
@@ -81,21 +82,29 @@ $(document).ready(function () {
                                                             for (i = 0; i < currentPLData.items.length; i++) {
                                                                 $('#infoHeader').empty();
                                                                 $('#infoHeader').append("Upcoming Songs");
-                                                                $('#results').append("<header alt='0' class='songLinkCurrent'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
+                                                                $('#results').append("<header alt='0'  onClick='songLinkClick();' class='songLinkCurrent'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
+                                                                $(".songLinkClick").eq(i).attr("id", "songLinkClick" + i);
+                                                                $("header#songLinkClick" + i).on("click", songLinkClick());
                                                             }
-                                                             $("#filename").val("");
+                                                            $("#filename").val("");
+
                                                         }
                                                     });
                                                 }
-
                                             });
                                         });
+
                                     }
                                 }
                             }
                         });
                     }
-                });            }            else {               localStorage["lastFM"] = prompt("Enter Your LastFM Username");
+                });
+            }
+
+            else {
+                var userPrompt = prompt("Enter Your LastFM Username");
+                localStorage.setItem("lastFM", userPrompt);
             }
         }
     });

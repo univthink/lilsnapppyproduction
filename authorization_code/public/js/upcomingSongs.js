@@ -6,6 +6,7 @@ $(document).ready(function () {
     // $("#filename").focus(function (event) {
     $('#infoHeader').empty();
     $('#infoHeader').append("Upcoming Songs");
+    if (localStorage.getItem("lastFM") != "null" || localStorage.getItem("lastFM") != "") {
     $.ajax({
         type: "GET",
         url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
@@ -32,19 +33,16 @@ $(document).ready(function () {
                     success: function (currentPLData) {
                         $('#results').empty();
                         for (i = 0; i < currentPLData.items.length; i++) {
-                            $('#results').append("<header alt='0' class='songLinkCurrent'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br>");
-                            $(".songLinkCurrent").eq(i).on("click", function () {
-                                $(".songLinkCurrent").eq(i).append("alt", "100");
-                                alert("Clicked");
-                            });
+                                $('#results').append("<header alt='0' class='songLinkClick' onClick='songLinkClick();' id='songLinkClick" + i + "'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
+                          $(".songLinkClick").eq(i).attr("id", "songLinkClick" + i);
+                          $("header#songLinkClick" + i).on("click", songLinkClick());
                         }
-                        
                     }
                 });
                 playlists = [];
             }
         }
-    
-  //  });
-    });
+
+   });
+}
 });

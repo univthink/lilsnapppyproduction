@@ -10,16 +10,16 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-
 <!-- -->
 
   </head>
 
   <body>
-      <center><h2 style="margin-bottom: 0px; height: 55px !important; font-size: 200% !important; font-weight: bold; color: white" id="infoHeader"></h2></center>
+    <div style="background-color: gray; position:fixed !important; width: 100% !important; opacity: 1;" id="searchBoxContainer"><center><h2 style="margin-bottom: 0px; height: 55px !important; font-size: 200% !important; font-weight: bold; color: white" id="infoHeader"></h2></center>
       <div id="searchBox"><input class="col-xs-3 form-control" name="filename" placeholder="Song or Artist..." id="filename" type="text"></div>
-     <center><div id="results"></div></center>
+    </div>
 
+     <center><div style="padding-top: 150px !important;" id="results"></div></center>
        <div class="container">
 
       <div id="loggedin">
@@ -187,10 +187,16 @@
 
 
     </script>
+      
       <script src="js/checkForPlaylist.js"></script>
       <script src="js/upcomingSongs.js"></script>
       <script src="js/song.js"></script>
-
+      <script>
+     var songLinkClick = function() {
+              $("#songLinkClick" + i).attr("alt", "Votes = " + i);
+              i++;
+          }
+      </script>
 
   </body>
 </html>
