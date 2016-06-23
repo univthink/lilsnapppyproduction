@@ -19,7 +19,7 @@
  var querystring = require('querystring');
  var cookieParser = require('cookie-parser');
 //var ii = 1;
-if (request.url.indexOf("https://") > -1) {
+if (self.location.href == "https://lilsnapppy.herokuapp.com/") {
  var client_id = '71d18cb9b32c480d951eed41512df8fc'; // Your client id
  var client_secret = '2e89cb3f772345279ae54fa417cc7457'; // Your secret
  var redirect_uri = 'https://lilsnapppy.herokuapp.com/callback/'; // Your redirect uri
