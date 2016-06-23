@@ -13,7 +13,7 @@ $(document).ready(function () {
             dataType: "json",
             data: "formdata",
             success: function (currentData) {
-                $('#footer2').append("<header alt='0' class='currentSong' id='currentSong'>" + currentData.recenttracks.track[0].artist['#text'] + "<br />" + currentData.recenttracks.track[0].name + "</header><br/>");
+                $('#footer2').append("<header alt='0' class='currentSong' id='currentSong'>" + currentData.recenttracks.track[0].artist['#text'] + " - " + "<em>" + currentData.recenttracks.track[0].name + "</em>" + "</header><br/>");
             }
         });
     $.ajax({
