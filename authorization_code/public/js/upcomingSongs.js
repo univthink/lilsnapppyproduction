@@ -7,6 +7,15 @@ $(document).ready(function () {
     $('#infoHeader').empty();
     $('#infoHeader').append("Upcoming Songs");
     if (localStorage.getItem("lastFM") != "null" || localStorage.getItem("lastFM") != "") {
+        $.ajax({
+            type: "GET",
+            url: "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=" + localStorage.getItem("lastFM") + "&api_key=9fc54977379828d52d1d779dc62f569b&format=json",
+            dataType: "json",
+            data: "formdata",
+            success: function (currentData) {
+                $('#footer2').append("<header alt='0' class='currentSong' id='currentSong'>" + currentData.recenttracks.track[0].artist['name'] + "<br />" + currentData.recenttracks.track[0].name + "</header><br/>");
+            }
+        });
     $.ajax({
         type: "GET",
         url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
