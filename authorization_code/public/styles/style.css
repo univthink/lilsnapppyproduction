@@ -109,6 +109,7 @@ header {
 * {
    // font-family: 'Roboto', sans-serif !important;
 }
+
 #login, #spotify, #logout {
     width: 100% !important;
     border: none !important;
