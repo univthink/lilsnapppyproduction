@@ -9,7 +9,7 @@ $(document).ready(function () {
     if (localStorage.getItem("lastFM") != "null" || localStorage.getItem("lastFM") != "") {
         $.ajax({
             type: "GET",
-            url: "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=" + localStorage.getItem("lastFM") + "&api_key=9fc54977379828d52d1d779dc62f569b&format=json",
+            url: "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=" + localStorage.getItem("lastFM") + "&api_key=9fc54977379828d52d1d779dc62f569b&format=json",
             dataType: "json",
             data: "formdata",
             success: function (currentData) {
