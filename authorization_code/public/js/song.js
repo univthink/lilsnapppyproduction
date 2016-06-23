@@ -19,7 +19,11 @@ $(document).ready(function () {
     var count = {};
     $("#filename").keypress(function (event) {
         if (event.which === 13) {
-            if (localStorage.getItem("lastFM") != "null" || localStorage.getItem("lastFM") != "") {
+            if (localStorage.getItem("lastFM") === null || localStorage.getItem("lastFM") === "") {
+                var userPrompt = prompt("Enter Your LastFM Username");
+                localStorage.setItem("lastFM", userPrompt);
+            }
+            else {
                 partyPlaylist = [];
                 baseURL = "https://api.spotify.com/v1/users/";
                 userID = $('#userID2').html();
@@ -102,10 +106,6 @@ $(document).ready(function () {
                 });
             }
 
-            else {
-                var userPrompt = prompt("Enter Your LastFM Username");
-                localStorage.setItem("lastFM", userPrompt);
-            }
         }
     });
-});
+    });
