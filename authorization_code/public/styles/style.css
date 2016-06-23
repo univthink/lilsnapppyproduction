@@ -1,0 +1,189 @@
+@media (max-device-width: 450px) {
+  div#loggedin {
+    height: 0px !important;
+}
+    html {
+position: relative !important;
+min-height: 100% !important;
+}
+header:nth-child(0), header:nth-child(1) {
+padding-top: 100px !important;
+}
+header {
+border-bottom: 3px solid pink !important;
+padding-bottom: 55px !important;
+}
+    footer, #footer {
+        background-color: #443f3f !important;
+        position: fixed !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        height: 200px !important;
+        width: 100% !important;
+}
+#footer2 {
+background-color: pink !important;
+position: fixed !important;
+left: 0 !important;
+bottom: 0 !important;
+height: 3px !important;
+width: 100% !important;
+}
+    body {zoom: 125% !important;}
+    input#filename {
+height: 125px !important;
+font-size: 250% !important;
+}
+#results {
+height: 0px !important;
+font-size: 250% !important;
+}
+#login, #spotify, #logout {
+width: 100% !important;
+border: none !important;
+height: 140px !important;
+font-size: 244% !important;
+background-color: #77af28;
+}
+#searchBox, #filename {
+width: 100% !important;
+border: 0;
+background: #ececec;
+padding: 0 0 0 0;
+margin: 0;
+outline: 0;
+border-radius: 0;
+height: 166px !important;
+font-size: -webkit-xxx-large;
+text-align: center;
+color: #72ad21;
+font-weight: bold;
+font-family: monospace !important;
+}
+body {width: 100%; height: 0px !important;}
+html {width: 100%; background-color: #443f3f; height: 100vh !important;}
+}
+header:nth-child(0), header:nth-child(1) {
+padding-top: 10px;
+}
+header {
+border-bottom: 3px solid pink !important;
+padding-bottom: 20px;
+}
+*{overflow: visible;}
+#login, #spotify, #logout {width: 100% !important; border: none !important; height: 156px; font-size: 140%; background-color: #77af28;}
+
+button#obtain-new-token {
+visibility: hidden;
+}
+body {width: 100%; height: 0px !important;}
+html {width: 100%; background-color: #443f3f; height: 100vh !important;}
+#searchBox, #filename {
+width: 100%;
+border: 0;
+background: #ececec;
+padding: 0 0 0 0;
+margin: 0;
+outline: 0;
+border-radius: 0;
+height: 66px !important;
+font-size: xx-large;
+text-align: center;
+color: #72ad21;
+font-weight: bold;
+font-family: monospace !important;
+}
+footer, #footer {
+        background-color: #443f3f !important;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+    }
+    #footer2 {
+                   background-color: pink !important;
+                   position: fixed !important;
+                   left: 0 !important;
+                   bottom: 0 !important;
+                   height: 3px !important;
+                   width: 100% !important;
+               }
+div#loggedin {
+width: 350px !important;
+margin: auto !important;
+height: 0px !important
+}
+body {
+width: 100%;
+margin: auto;
+}
+div#searchBox {
+width: inherit;
+margin:auto;
+margin-top: 0px;
+}
+button#searchSongs {
+margin-left: 5px;
+}
+.dl-horizontal dd {
+margin: 0;
+}
+div#oauth {display: none;}
+#login {
+border-top: 5px solid #443f3f;
+display: none;
+width: 150px;
+margin: auto;
+}
+#loggedin {
+display: auto;
+}
+.text-overflow {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+width: 500px;
+}
+body {
+padding: 0px;
+}
+#search-form, .form-control {
+// margin-bottom: 20px;
+}
+.cover {
+width: 300px;
+height: 300px;
+display: inline-block;
+background-size: cover;
+}
+.media, .media-body, div#oauth, div#user-profile, h1 { height: 0px;}
+div#results {
+width: 100% !important;
+color: white;
+font-weight: bold;
+padding-top: 5px;
+background-color: #443f3f;
+//height: 1000px !important;
+}
+.cover:hover {
+cursor: pointer;
+}
+.cover.playing {
+border: 5px solid #e45343;
+}
+dt {
+text-align: left !important;
+}
+button#obtain-new-token {
+width: 346px;
+}
+div#results {
+width: 340px;
+margin: auto;
+padding-top: 5px;
+}
+button#setDefaultPlaylist {
+width: 347px;
+margin-top: 20px;
+}
