@@ -19,9 +19,9 @@ $(document).ready(function () {
             }
         });
         
-        $.ajax({
+        $.ajax( {
             type: "GET",
-        url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage["Snapster"] +"/tracks",
+            url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage["Snapster"] + "/tracks",
             headers: { 'Authorization': 'Bearer ' + access_token },
             dataType: "json",
             data: "formdata",
@@ -30,30 +30,33 @@ $(document).ready(function () {
                 for (i = 0; i < trackData.items.length; i++) {
                     currentTracks.push(trackData.items[i].track.name);
                 }
-                localStorage["currentlyPlaying"] = currentTracks.indexOf(localStorage["currentlyPlaying"]);
-                if (localStorage["currentlyPlaying"]  > 4) {
-                    localStorage["currentTrackNumber"] = localStorage["currentlyPlaying"] - 5;
+                localStorage["currentTrack"] = currentTracks.indexOf(localStorage["currentlyPlaying"]);
+                if (localStorage["currentTrack"] > 4) {
+                    localStorage["currentTrackNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]);
+                    localStorage["offsetNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]) - 4;
                 }
-                else if (localStorage["currentlyPlaying"] == 4) {
-                    localStorage["currentTrackNumber"] = localStorage["currentlyPlaying"] - 4;
+                else if (localStorage["currentTrack"] == 4) {
+                    localStorage["currentTrackNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]);
+                    localStorage["offsetNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]) - 4;
                 }
-                else if (localStorage["currentlyPlaying"] == 3) {
-                    localStorage["currentTrackNumber"] = localStorage["currentlyPlaying"] - 3;
+                else if (localStorage["currentTrack"] == 3) {
+                    localStorage["currentTrackNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]);
+                    localStorage["offsetNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]) - 3;
                 }
-                else if (localStorage["currentlyPlaying"] ==  2) {
-                    localStorage["currentTrackNumber"] = localStorage["currentlyPlaying"] - 2;
+                else if (localStorage["currentTrack"] ==  2) {
+                    localStorage["currentTrackNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]);
+                    localStorage["offsetNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]) - 2;
                 }
-                else if (localStorage["currentlyPlaying"] ==  1) {
-                    localStorage["currentTrackNumber"] = localStorage["currentlyPlaying"] - 1;
+                else if (localStorage["currentTrack"] ==  1) {
+                    localStorage["currentTrackNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]);
+                    localStorage["offsetNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]) - 1;
                 }
-                else if (localStorage["currentlyPlaying"] == 0) {
-                    localStorage["currentTrackNumber"] = 0;
-                }
-                else if (localStorage["currentlyPlaying"] < 0) {
-                    localStorage["currentTrackNumber"] = currentTracks.length - 5;
+                else if (localStorage["currentTrack"] == 0) {
+                    localStorage["currentTrackNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]);
+                    localStorage["offsetNumber"] = currentTracks.length - (currentTracks.length - localStorage["currentTrack"]);
                 }
                 currentTracks = [];
-                console.log(localStorage["currentTrackNumber"] + " " + localStorage["currentTrackNumber"]);
+                console.log(localStorage["currentTrack"] + " " + localStorage["offsetNumber"] + localStorage["currentTrackNumber"]);
             }
         });
     $.ajax({
@@ -75,7 +78,7 @@ $(document).ready(function () {
                 $("#results").css("text-align", "center");
                 $.ajax({
                     type: "GET",
-                    url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + Snapster + "/tracks?limit=100&offset=" + localStorage["currentTrackNumber"],
+                    url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + Snapster + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
                     headers: { 'Authorization': 'Bearer ' + access_token },
                     dataType: "json",
                     data: "formdata",
@@ -84,51 +87,49 @@ $(document).ready(function () {
                         for (i = 0; i < currentPLData.items.length; i++) {
                                 $('#results').append("<header alt='0' class='songLinkClick' id='songLinkClick" + i + "'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
                             }
-                            if (localStorage["currentlyPlaying"] > 4) {
+                            if (localStorage["currentTrackNumber"] > 4) {
                                 document.getElementById("songLinkClick0").style.color = "gray";
                                 document.getElementById("songLinkClick1").style.color = "gray";
                                 document.getElementById("songLinkClick2").style.color = "gray";
                                 document.getElementById("songLinkClick3").style.color = "gray";
                                 document.getElementById("songLinkClick4").style.color = "#ec6a70";
                             }
-                            else if (localStorage["currentlyPlaying"] == 4) {
+                            else if (localStorage["currentTrackNumber"] == 4) {
                                 document.getElementById("songLinkClick0").style.color = "gray";
                                 document.getElementById("songLinkClick1").style.color = "gray";
                                 document.getElementById("songLinkClick2").style.color = "gray";
                                 document.getElementById("songLinkClick3").style.color = "gray";
                                 document.getElementById("songLinkClick4").style.color = "#ec6a70";
                             }
-                            else if (localStorage["currentlyPlaying"] == 3) {
+                            else if (localStorage["currentTrackNumber"] == 3) {
                                 document.getElementById("songLinkClick0").style.color = "gray";
                                 document.getElementById("songLinkClick1").style.color = "gray";
                                 document.getElementById("songLinkClick2").style.color = "gray";
                                 document.getElementById("songLinkClick3").style.color = "#ec6a70";
                             }
-                            else if (localStorage["currentlyPlaying"] == 2) {
+                            else if (localStorage["currentTrackNumber"] == 2) {
                                 document.getElementById("songLinkClick0").style.color = "gray";
                                 document.getElementById("songLinkClick1").style.color = "gray";
                                 document.getElementById("songLinkClick2").style.color = "#ec6a70";
                             }
-                            else if (localStorage["currentlyPlaying"] == 1) {
+                            else if (localStorage["currentTrackNumber"] == 1) {
                                 document.getElementById("songLinkClick0").style.color = "gray";
                                 document.getElementById("songLinkClick1").style.color = "#ec6a70";
                             }
-                            else if (localStorage["currentlyPlaying"] == 0) {
+                            else if (localStorage["currentTrackNumber"] == 0) {
                                 document.getElementById("songLinkClick0").style.color = "#ec6a70";
                             }
-                            else if (localStorage["currentlyPlaying"] < 0) {
-                                document.getElementById("songLinkClick0").style.color = "gray";
-                                document.getElementById("songLinkClick1").style.color = "gray";
-                                document.getElementById("songLinkClick2").style.color = "gray";
-                                document.getElementById("songLinkClick3").style.color = "gray";
-                                document.getElementById("songLinkClick4").style.color = "#ec6a70";
-                            }
+                            localStorage["currentTrack"] = 0;
+                            localStorage["currentlyPlaying"] = 0;
+                            localStorage["currentTrackNumber"] = 0;
+                            currentTracks = [];
                     }
                 });
-                playlists = [];
+                    playlists = [];
             }
         }
 
-   });
+        });
+        
 }
 });
