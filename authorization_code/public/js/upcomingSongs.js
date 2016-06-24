@@ -98,7 +98,7 @@ $(document).ready(function () {
                                     document.getElementById("songLinkClick" + 3).style.color = "pink";
                                     $(".songLinkClick:gt(3)").css("color", "white");
                                 }
-                                $(document).on('click', '#songLinkClick' + i, function (e) {
+                                $(document).on('dblclick', '#songLinkClick' + i, function (e) {
                                     for (i = 0; i < localStorage["totalSongs"]; i++) {
                                         obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
                                         obj["range_length"] = 1;
