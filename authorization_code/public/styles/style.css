@@ -19,6 +19,7 @@
     }
     div#hideThis {
         zoom: 180% !important;
+        display: none;
     }
     div#link {
     height: 62px;
@@ -46,7 +47,7 @@ input#partyID, #spotify {
     }
 
     header {
-        border-bottom: 3px solid pink !important;
+        border-bottom: 3px solid white !important;
         padding-bottom: 55px !important;
     }
 
@@ -238,7 +239,7 @@ input#partyID:focus {
 }
 div#results, body {
     height: 100% !important;
-    background: gray;
+        background: coral !important;
 }
 a#spotify:hover, a#spotify:active {
     background-color: #96f896;
@@ -274,7 +275,9 @@ button#searchSongs {
 .dl-horizontal dd {
     margin: 0;
 }
-
+div#hideThis {
+        display: none;
+    }
 div#oauth {
     display: none;
 }
@@ -325,7 +328,7 @@ div#results {
     color: white;
     font-weight: bold;
     padding-top: 5px;
-    background-color: transparent;
+    background: #443f3f;
     //height: 1000px !important;
 }
 
