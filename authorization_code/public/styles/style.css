@@ -239,7 +239,8 @@ input#partyID:focus {
 }
 div#results, body {
     height: 100% !important;
-        background: coral !important;
+    background: #b39f98 !important;
+
 }
 a#spotify:hover, a#spotify:active {
     background-color: #96f896;

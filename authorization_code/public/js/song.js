@@ -89,6 +89,7 @@ $(document).ready(function () {
                                                                 $('#results').append("<header alt='0' class='songLinkCurrent'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
                                                             }
                                                             $("#filename").val("");
+                                                            location.reload();
 
                                                         }
                                                     });
