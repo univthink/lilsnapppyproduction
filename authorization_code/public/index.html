@@ -47,9 +47,16 @@
           {{/each}}
       </script> -->
     
-    <center><form>
-        <input type="text" id="partyID" placeholder="Join a Party..." name="party">
-    </form></center>
+    <div>
+        <center>
+            <form>
+                <input type="text" id="partyID" placeholder="Join a Party..." name="party">
+            </form>
+
+                    <!--<h1><em>Snapster</em></h1>-->
+                    <a href="/login" style="margin-top: 15px; width: 46% !important;margin-left: 2% !important; height: 100px !important; font-size: 400% !important; margin-top: 100px !important;" id="spotify" class="btn btn-primary">Host a Party!</a>
+        </center>
+    </div>
     <script>
         var path = window.location.pathname;
         if (window.location.href.indexOf("?party=party") > -1) {
@@ -99,12 +106,7 @@
 
     </script>
 
-    <footer id="footer">
-        <div id="login">
-            <!--<h1><em>Snapster</em></h1>-->
-            <a href="/login" id="spotify" class="btn btn-primary">Host a Party</a>
-        </div>
-    </footer>
+  
     <center><div id="footer2"></div></center>
     <script id="user-profile-template" type="text/x-handlebars-template">
         <p style="color:white;" id="userID">{{id}}</p>
