@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html id="html">
   <head>
     <title>Snapster</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -46,8 +46,16 @@
           <div style="background-image:url({{images.0.url}})" data-album-id="{{id}}" class="cover"></div>
           {{/each}}
       </script> -->
-
-
+    
+    <center><form>
+        <input type="text" id="partyID" placeholder="Join a Party..." name="party">
+    </form></center>
+    <script>
+        var path = window.location.pathname;
+        if (window.location.href.indexOf("?party=party") > -1) {
+            window.location.href = "http://localhost:5000/#access_token=BQA-mSuBG0SVv74u_b00B9vPFzOs_O3iya5XS2-a86SNwalhXS9QknHRWzXafbHH1n010Oa9gxgSs02PwMMmPlw38Zo4PRCRTDuzFgyBD9UUXESM6_Yh1NDSBPmFnxn_YYSb3cJRiKFj4RFQwffAXKursxwkrRs0-ZFY1-uAVBSVgyenKsZZg4R9lKiKF1hhgVEDVvnOLbNErpAT1WtNNkrfSaJkPRRPlW4bNFYaondRn7WdkviziJ8rDGuRkxYC&refresh_token=AQABa3zgsBb46awF6OxA9xEPWQOcJRL2hlvCYKc3Oz4he7s4FeI9NxOzO5FGh12IHJ9TyCPSu156-2pAn0Qrk57DcY76vMyRGMFZZxN3TTtsVPgiaywvDT3UkjLxh34ZheY";
+        }
+    </script>
 
 
     <script id="oauth-template" type="text/x-handlebars-template">
@@ -94,7 +102,7 @@
     <footer id="footer">
         <div id="login">
             <!--<h1><em>Snapster</em></h1>-->
-            <a href="/login" id="spotify" class="btn btn-primary">Log in with Spotify</a>
+            <a href="/login" id="spotify" class="btn btn-primary">Host a Party!</a>
         </div>
     </footer>
     <center><div id="footer2"></div></center>
@@ -159,6 +167,8 @@
                             $('#footer2').show();
                             $('#searchBox').show();
                             $('#infoHeader').show();
+                            $('input#partyID').hide();
+                            $('#html').css('background-image', 'none');
 
                         }
                     });
@@ -170,6 +180,7 @@
                     $('#footer').show();
                     $('#searchBox').hide();
                     $('#infoHeader').hide();
+                    $('#partyID').show();
                 }
 
                 document.getElementById('obtain-new-token').addEventListener('click', function () {
@@ -195,12 +206,7 @@
     <script src="js/checkForPlaylist.js"></script>
     <script src="js/upcomingSongs.js"></script>
     <script src="js/song.js"></script>
-    <!--<script>
-    var songLinkClick = function() {
-             $("#songLinkClick" + i).attr("alt", "Votes = " + i);
-             i++;
-         }
-     </script>-->
+  
 
 </body>
 </html>
