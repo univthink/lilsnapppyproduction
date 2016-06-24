@@ -2,7 +2,17 @@
     div#loggedin {
         height: 0px !important;
     }
-
+    input#partyID:focus {
+        border: 2px solid blue !important;
+        background: white;
+    }
+    div#results, body {
+        height: 100% !important;
+        background: gray;
+    }
+    a#spotify:hover, a#spotify:active {
+        background-color: #96f896;
+    }
     html {
         position: relative !important;
         min-height: 100% !important;
@@ -77,12 +87,14 @@ width: 100% !important;
     position: absolute;
     margin-left: 13% !important;
 }
-   a#spotify {
-    width: 125% !important;
-    margin-left: -10% !important;
-    height: 100px !important;
-    font-size: 170% !important;
-    margin-top: 100px !important;
+a#spotify, #spotify {
+margin-top: 15px;
+width: 365px !important;
+margin-left: -22% !important;
+height: 100px !important;
+font-size: 375% !important;
+margin-top: 100px !important;
+border: 2px solid black !important;
 }
     #searchBox, #filename {
         width: 100% !important;
@@ -200,6 +212,7 @@ footer, #footer {
     color: #443f3f;
 }
 #partyID {
+    border: 2px solid black;
     width: 291px;
     background: #ececec;
     padding: 0 0 0 0;
@@ -211,6 +224,17 @@ footer, #footer {
     color: #72ad21;
     font-weight: bold;
     font-family: fantasy;
+}
+input#partyID:focus {
+    border: 2px solid blue !important;
+    background: white;
+}
+div#results, body {
+    height: 100% !important;
+    background: gray;
+}
+a#spotify:hover, a#spotify:active {
+    background-color: #96f896;
 }
 div#loggedin {
     width: 350px !important;
@@ -328,4 +352,8 @@ div#searchboxContainer {
     position: fixed !important;
     width: 100% !important;
     opacity: 1;
+}
+a#spotify, #spotify {
+  margin-top: 15px; width: 291px; margin-left: -19%; height: 62px; font-size: 236%; margin-top: 100px; border: 2px solid black;
+
 }
