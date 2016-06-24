@@ -7,7 +7,14 @@
         position: relative !important;
         min-height: 100% !important;
     }
-
+    input#partyID {
+    margin-top: 45%;
+    height: 100px !important;
+    width: 375px !important;
+    margin-left: 25%;
+    font-size: 335%;
+    font-weight: lighter;
+}
     header:nth-child(0), header:nth-child(1) {
         padding-top: 100px !important;
     }
@@ -24,12 +31,13 @@
     }
 
     footer, #footer {
-        background-color: #443f3f !important;
+        background-color: transparent !important;
         position: fixed !important;
         left: 0 !important;
         bottom: 0 !important;
         height: 200px !important;
         width: 100% !important;
+        margin-bottom: 55%;
     }
 
     #footer2 {
@@ -65,7 +73,12 @@
         background-color: #77af28;
         font-family: fantasy !important;
     }
-
+   a#spotify {
+    width: 79% !important;
+    margin-left: -3%;
+    height: 100px !important;
+    font-size: 170% !important;
+}
     #searchBox, #filename {
         width: 100% !important;
         border: 0;
@@ -109,16 +122,17 @@ header {
 * {
    // font-family: 'Roboto', sans-serif !important;
 }
-
 #login, #spotify, #logout {
-    width: 100% !important;
+    width: 291px !important;
     border: none !important;
-    height: 156px;
     font-size: 140%;
     background-color: #77af28;
     font-family: fantasy;
+    height: 62px;
+    border-radius: 8px;
+    margin: auto !important;
+    margin-top: -90px !important;
 }
-
 button#obtain-new-token {
     visibility: hidden;
 }
@@ -158,10 +172,10 @@ div#searchboxContainer {
 }
 
 footer, #footer {
-    background-color: #443f3f !important;
+    background-color: transparent !important;
     position: fixed;
     left: 0;
-    bottom: 0;
+   // margin-bottom: 50%;
     height: 50px;
     width: 100%;
 }
@@ -176,13 +190,32 @@ footer, #footer {
     font-weight: bold;
     color: #443f3f;
 }
-
+#partyID {
+    width: 291px;
+    background: #ececec;
+    padding: 0 0 0 0;
+    margin-top: 15%;
+    border-radius: 8px;
+    height: 62px !important;
+    font-size: xx-large;
+    text-align: center;
+    color: #72ad21;
+    font-weight: bold;
+    font-family: fantasy;
+}
 div#loggedin {
     width: 350px !important;
     margin: auto !important;
     height: 0px !important;
 }
-
+html {
+    width: 100%;
+    margin: auto;
+    z-index: 8;
+    background-image: url('../images/turtle.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 body {
     width: 100%;
     margin: auto;
@@ -205,14 +238,18 @@ button#searchSongs {
 div#oauth {
     display: none;
 }
-
+#login {
+    background: transparent;
+}
 #login {
     border-top: 5px solid #443f3f;
     display: none;
     width: 150px;
     margin: auto;
+    margin-top: 3%;
+    text-align: -webkit-center;
+    font-size: 180%;
 }
-
 #loggedin {
     display: auto;
 }
@@ -248,7 +285,7 @@ div#results {
     color: white;
     font-weight: bold;
     padding-top: 5px;
-    background-color: #443f3f;
+    background-color: transparent;
     //height: 1000px !important;
 }
 
