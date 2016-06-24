@@ -7,11 +7,11 @@
         position: relative !important;
         min-height: 100% !important;
     }
-    input#partyID {
+input#partyID {
     margin-top: 45%;
     height: 100px !important;
-    width: 375px !important;
-    margin-left: 25%;
+    width: 365px !important;
+    margin-left: 2%;
     font-size: 335%;
     font-weight: lighter;
 }
@@ -74,10 +74,11 @@
         font-family: fantasy !important;
     }
    a#spotify {
-    width: 79% !important;
-    margin-left: -3%;
+    width: 125% !important;
+    margin-left: -10% !important;
     height: 100px !important;
     font-size: 170% !important;
+    margin-top: 100px !important;
 }
     #searchBox, #filename {
         width: 100% !important;
@@ -212,9 +213,8 @@ html {
     width: 100%;
     margin: auto;
     z-index: 8;
-    background-image: url('../images/turtle.jpg');
+    background-image: url('../images/turtle.jpg') !important;
     background-size: cover;
-    background-repeat: no-repeat;
 }
 body {
     width: 100%;
