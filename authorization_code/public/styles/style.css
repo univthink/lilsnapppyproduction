@@ -65,13 +65,18 @@ width: 100% !important;
     }
 
     #login, #spotify, #logout {
-        width: 100% !important;
-        border: none !important;
-        height: 140px !important;
-        font-size: 244% !important;
-        background-color: #77af28;
-        font-family: fantasy !important;
-    }
+    width: 291px !important;
+    border: none !important;
+    font-size: 140%;
+    background-color: #77af28;
+    font-family: fantasy;
+    height: 62px;
+    border-radius: 8px;
+    margin: auto !important;
+    margin-top: -190px !important;
+    position: absolute;
+    margin-left: 13% !important;
+}
    a#spotify {
     width: 125% !important;
     margin-left: -10% !important;
@@ -131,7 +136,9 @@ header {
     height: 62px;
     border-radius: 8px;
     margin: auto !important;
-    margin-top: -90px !important;
+    margin-top: -190px !important;
+    position: absolute;
+    margin-left: 13% !important;
 }
 button#obtain-new-token {
     visibility: hidden;
