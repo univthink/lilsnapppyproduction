@@ -47,20 +47,20 @@
           {{/each}}
       </script> -->
 
-    <div id="hideThis">
+  <center>  <div id="hideThis">
         <center>
             <form>
-                <input type="text" id="partyID" placeholder="Join a Party..." name="party">
+                <input style="height: 62px !important; width: 291px !important;" type="text" id="partyID" placeholder="Join a Party..." name="party">
             </form>
-
+</center>
                     <!--<h1><em>Snapster</em></h1>-->
-                    <center><a href="/login" id="spotify" class="btn btn-primary">Host a Party!</a></center>
-        </center>
-    </div>
+                    <center><div id="link"><a href="/login" style="height: 62px !important; width: 291px !important;" id="spotify">Host a Party!</a></div></center>
+
+    </div></center>
     <script>
         var path = window.location.pathname;
         if (window.location.href.indexOf("?party=party") > -1) {
-            window.location.href = "http://localhost:5000/#access_token=BQA-mSuBG0SVv74u_b00B9vPFzOs_O3iya5XS2-a86SNwalhXS9QknHRWzXafbHH1n010Oa9gxgSs02PwMMmPlw38Zo4PRCRTDuzFgyBD9UUXESM6_Yh1NDSBPmFnxn_YYSb3cJRiKFj4RFQwffAXKursxwkrRs0-ZFY1-uAVBSVgyenKsZZg4R9lKiKF1hhgVEDVvnOLbNErpAT1WtNNkrfSaJkPRRPlW4bNFYaondRn7WdkviziJ8rDGuRkxYC&refresh_token=AQABa3zgsBb46awF6OxA9xEPWQOcJRL2hlvCYKc3Oz4he7s4FeI9NxOzO5FGh12IHJ9TyCPSu156-2pAn0Qrk57DcY76vMyRGMFZZxN3TTtsVPgiaywvDT3UkjLxh34ZheY";
+            window.location.href = "https://lilsnapppy.herokuapp.com/#access_token=" + access_token;
         }
     </script>
 
