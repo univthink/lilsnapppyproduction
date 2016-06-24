@@ -162,7 +162,7 @@
                         },
                         success: function (response) {
                             userProfilePlaceholder.innerHTML = userProfileTemplate(response);
-
+                            $('#hideThis').hide();
                             $('#login').hide();
                             $('#loggedin').show();
                             $('#footer').hide();
@@ -170,13 +170,13 @@
                             $('#searchBox').show();
                             $('#infoHeader').show();
                             $('input#partyID').hide();
-                            $('#hideThis').hide();
 
 
                         }
                     });
                 } else {
                     // render initial screen
+                    $('#hideThis').show();
                     $('#login').show();
                     $('#loggedin').hide();
                     $('#footer2').hide();
