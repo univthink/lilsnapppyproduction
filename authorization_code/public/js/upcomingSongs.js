@@ -5,6 +5,8 @@ $(document).ready(function () {
     var playlists = [];
     var currentTracks = [];
     var j;
+    var obj = {};
+    var sendInfo;
     // $("#filename").focus(function (event) {
     $('#infoHeader').empty();
     $('#infoHeader').append("Upcoming Songs");
@@ -19,7 +21,7 @@ $(document).ready(function () {
                 localStorage["currentlyPlaying"] = currentData.recenttracks.track[0].name.toUpperCase();
             }
         });
-        
+        localStorage["totalSongs"] = 0;
         $.ajax({
             type: "GET",
             url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage["Snapster"] + "/tracks",
@@ -29,15 +31,12 @@ $(document).ready(function () {
             success: function (trackData) {
                 currentTracks = [];
                 for (i = 0; i < trackData.items.length; i++) {
-                    currentTracks.push(trackData.items[i].track.name.toUpperCase());
+                    currentTracks[i] = trackData.items[i].track.name.toUpperCase();
                 }
-                localStorage["songArray"] = currentTracks;
+                console.log(currentTracks);
+                localStorage["totalSongs"] = currentTracks.length;
                 localStorage["currentlyPlayingWC"] = localStorage["currentlyPlaying"].replace(/,/g, '');
                 localStorage["currentTrack"] = currentTracks.indexOf(localStorage["currentlyPlayingWC"]);
-                console.log(localStorage["songArray"]);
-                console.log(localStorage["currentTrack"]);
-                console.log(currentTracks);
-                console.log(localStorage["currentlyPlaying"]);
                 for (i = 0; i < currentTracks.length; i++) {
                     if (localStorage["currentTrack"] >= 5) {
                         localStorage["offsetNumber"] = localStorage["currentTrack"] - 4;
@@ -46,7 +45,6 @@ $(document).ready(function () {
                         localStorage["offsetNumber"] = 0;
                     }
                     currentTracks = [];
-                    console.log(localStorage["currentTrack"] + " " + localStorage["offsetNumber"] + localStorage["currentTrackNumber"]);
                 }
             }
         });
@@ -76,39 +74,59 @@ $(document).ready(function () {
                         success: function (currentPLData) {
                             $('#results').empty();
                             for (i = 0; i < currentPLData.items.length; i++) {
-                                $('#results').append("<header alt='" + currentPLData.items[i].track.id + "' style='color: gray;' class='songLinkClick' id='songLinkClick" + i + "'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
+                                $('#results').append("<header alt='" + i + "' style='color: gray;' class='songLinkClick' id='songLinkClick" + i + "'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
                             }
-                           
+                            
                             for (i = 0; i < localStorage["songArray"].length + 1; i++) {
                                 if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] > 3) {
                                     document.getElementById("songLinkClick" + 4).style.color = "pink";
                                     $(".songLinkClick:gt(4)").css("color", "white");
                                 }
-                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"]  == 0) {
+                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 0) {
                                     document.getElementById("songLinkClick" + 0).style.color = "pink";
                                     $(".songLinkClick:gt(0)").css("color", "white");
                                 }
-                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"]  == 1) {
+                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 1) {
                                     document.getElementById("songLinkClick" + 1).style.color = "pink";
                                     $(".songLinkClick:gt(1)").css("color", "white");
                                 }
-                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"]  == 2) {
+                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 2) {
                                     document.getElementById("songLinkClick" + 2).style.color = "pink";
                                     $(".songLinkClick:gt(2)").css("color", "white");
                                 }
-                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"]  == 3) {
+                                else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 3) {
                                     document.getElementById("songLinkClick" + 3).style.color = "pink";
                                     $(".songLinkClick:gt(3)").css("color", "white");
                                 }
+                                $(document).on('click', '#songLinkClick' + i, function (e) {
+                                    for (i = 0; i < localStorage["totalSongs"]; i++) {
+                                        obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
+                                        obj["range_length"] = 1;
+                                        obj["insert_before"] = parseInt(localStorage["currentTrack"]) + 3;
+                                        console.log("Clicked");
+                                    }
+                                        $.ajax({
+                                            type: "PUT",
+                                            url: "https://api.spotify.com/v1/users/" + localStorage["userID"] + "/playlists/" + localStorage["Snapster"] + "/tracks",
+                                            headers: { 'Authorization': 'Bearer ' + access_token },
+                                            dataType: "json",
+                                            data: JSON.stringify(obj),
+                                            success: function (dataFirst) {
+                                            partyPlaylist = [];
+                                            $("#results").empty();
+                                            $("#results").css("text-align", "center");
+                                            console.log("Success");
+                                            location.reload();
+                                            }
+                                        });
+                                        console.log(obj);
+                                    
+                                });
                             }
-                            
-                            localStorage["currentTrack"] = 0;
-                            localStorage["currentlyPlaying"] = 0;
-                            localStorage["currentTrackNumber"] = 0;
-                            currentTracks = [];
                         }
                     });
                     playlists = [];
+                    currentTracks = [];
                 }
             }
 

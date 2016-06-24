@@ -254,7 +254,6 @@ html {
     width: 100%;
     margin: auto;
     z-index: 8;
-    background-image: url('../images/turtle.jpg') !important;
     background-size: cover;
 }
 body {

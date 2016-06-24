@@ -17,6 +17,10 @@ $(document).ready(function () {
     var jData;
     var partyPlaylist;
     var count = {};
+    if (localStorage.getItem("lastFM") === null || localStorage.getItem("lastFM") === "null") {
+        var userPrompt = prompt("Enter Your LastFM Username");
+        localStorage.setItem("lastFM", userPrompt);
+    }
     $("#filename").keypress(function (event) {
         if (event.which === 13) {
             if (localStorage.getItem("lastFM") === null || localStorage.getItem("lastFM") === "null") {
@@ -52,10 +56,10 @@ $(document).ready(function () {
                                         partyPlaylist = playlists.indexOf("Partify");
                                         localStorage['Snapster'] = data.items[partyPlaylist].id;
                                         Snapster = localStorage['Snapster'];
-                                        console.log(Snapster);
 
                                     }
                                     localStorage['Snapster'] = data.items[partyPlaylist].id;
+                                    localStorage["myData"] = myData;
                                     Snapster = localStorage['Snapster'];
                                     $("#results").empty();
                                     
@@ -72,8 +76,6 @@ $(document).ready(function () {
                                                 data: "formdata",
                                                 success: function (dataFirst) {
                                                     partyPlaylist = [];
-                                                    console.log("playlist id=" + Snapster);
-                                                    console.log("song id=" + myData.tracks.items.id);
                                                     $("#results").empty();
                                                     $("#results").css("text-align", "center");
                                                     $.ajax({

@@ -43,7 +43,6 @@ $(document).ready(function () {
                                         data: "formdata",
                                         success: function (data) {
                                             runSongjs();
-                                            alert(playlists);
                                             localStorage['Snapster'] = data.items[partyPlaylist].id;
                                             Snapster = localStorage['Snapster'];
                                         }
