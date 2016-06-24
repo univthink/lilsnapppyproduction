@@ -47,7 +47,7 @@
           {{/each}}
       </script> -->
     
-    <div>
+    <div id="hideThis">
         <center>
             <form>
                 <input type="text" id="partyID" placeholder="Join a Party..." name="party">
@@ -170,6 +170,8 @@
                             $('#searchBox').show();
                             $('#infoHeader').show();
                             $('input#partyID').hide();
+                            $('#hideThis').hide();
+
 
                         }
                     });
