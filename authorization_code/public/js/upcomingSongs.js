@@ -7,6 +7,12 @@ $(document).ready(function () {
     var j;
     var obj = {};
     var sendInfo;
+    localStorage["totalSongs"] = 0;
+    localStorage["currentlyPlayingWC"] = "";
+    localStorage["currentlyPlaying"] = "";
+    localStorage["currentTrack"] = 0;
+    localStorage["offsetNumber"] = 0;
+    partyPlaylist = 0;
     // $("#filename").focus(function (event) {
     $('#infoHeader').empty();
     $('#infoHeader').append("Upcoming Songs");
@@ -21,12 +27,6 @@ $(document).ready(function () {
                 localStorage["currentlyPlaying"] = currentData.recenttracks.track[0].name.toUpperCase();
             }
         });
-        localStorage["totalSongs"] = 0;
-        localStorage["currentlyPlayingWC"] = "";
-        localStorage["currentlyPlaying"] = "";
-         localStorage["currentTrack"] = 0;
-          localStorage["offsetNumber"] = 0;
-          partyPlaylist = 0;
         $.ajax({
             type: "GET",
             url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage["Snapster"] + "/tracks",
