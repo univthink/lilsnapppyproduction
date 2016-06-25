@@ -103,37 +103,28 @@ $(document).ready(function () {
                                     document.getElementById("songLinkClick" + 3).style.color = "pink";
                                     $(".songLinkClick:gt(3)").css("color", "white");
                                 }
-                                $(document).on('touchstart', '#songLinkClick' + i, function (e) {
-                                    var tapped = false;
-                                    if (!tapped) {
-                                        tapped = setTimeout(function () {
-                                            tapped = null;
-                                        }, 1000);
-                                    } else {    //tapped within 300ms of last tap. double tap
-                                        clearTimeout(tapped); //stop single tap callback
-                                        tapped = true;
-                                        for (i = 0; i < localStorage["totalSongs"]; i++) {
-                                            obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
-                                            obj["range_length"] = 1;
-                                            obj["insert_before"] = parseInt(localStorage["currentTrack"]);
-                                        }
-                                        $.ajax({
-                                            type: "PUT",
-                                            url: "https://api.spotify.com/v1/users/" + localStorage["userID"] + "/playlists/" + localStorage["Snapster"] + "/tracks",
-                                            headers: { 'Authorization': 'Bearer ' + access_token },
-                                            dataType: "json",
-                                            data: JSON.stringify(obj),
-                                            success: function (dataFirst) {
-                                                partyPlaylist = [];
-                                                $("#results").empty();
-                                                $("#results").css("text-align", "center");
-                                                console.log("Success");
-                                                location.reload();
-                                            }
-                                        });
-                                        console.log(obj);
-                                        e.preventDefault()
+                                $(document).on('taphold', '#songLinkClick' + i, function () {
+                                    for (i = 0; i < localStorage["totalSongs"]; i++) {
+                                        obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
+                                        obj["range_length"] = 1;
+                                        obj["insert_before"] = parseInt(localStorage["currentTrack"]) + 1;
+                                        console.log("Clicked");
                                     }
+                                    $.ajax({
+                                        type: "PUT",
+                                        url: "https://api.spotify.com/v1/users/" + localStorage["userID"] + "/playlists/" + localStorage["Snapster"] + "/tracks",
+                                        headers: { 'Authorization': 'Bearer ' + access_token },
+                                        dataType: "json",
+                                        data: JSON.stringify(obj),
+                                        success: function (dataFirst) {
+                                            partyPlaylist = [];
+                                            $("#results").empty();
+                                            $("#results").css("text-align", "center");
+                                            console.log("Success");
+                                            location.reload();
+                                        }
+                                    });
+                                    console.log(obj);
                                 });
                                 $(document).on('click', '#songLinkClick' + i, function () {
                                     for (i = 0; i < localStorage["totalSongs"]; i++) {
