@@ -103,7 +103,6 @@ $(document).ready(function () {
                                     if (!tapped) {
                                         tapped = setTimeout(function () {
                                             tapped = true;
-                                            alert("Double Tap To Vote For A Song");
                                         }, 1000);
                                     } else {    //tapped within 300ms of last tap. double tap
                                         clearTimeout(tapped); //stop single tap callback
@@ -111,8 +110,7 @@ $(document).ready(function () {
                                         for (i = 0; i < localStorage["totalSongs"]; i++) {
                                             obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
                                             obj["range_length"] = 1;
-                                            obj["insert_before"] = parseInt(localStorage["currentTrack"]) + 1;
-                                            console.log("Clicked");
+                                            obj["insert_before"] = parseInt(localStorage["currentTrack"]);
                                         }
                                         $.ajax({
                                             type: "PUT",
