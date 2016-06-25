@@ -107,7 +107,7 @@ $(document).ready(function () {
                                     var tapped = false;
                                     if (!tapped) {
                                         tapped = setTimeout(function () {
-                                            tapped = true;
+                                            tapped = null;
                                         }, 1000);
                                     } else {    //tapped within 300ms of last tap. double tap
                                         clearTimeout(tapped); //stop single tap callback
@@ -135,7 +135,7 @@ $(document).ready(function () {
                                         e.preventDefault()
                                     }
                                 });
-                                $(document).on('click', '#songLinkClick' + i, function () {
+                                $(document).on('dblclick', '#songLinkClick' + i, function () {
                                     for (i = 0; i < localStorage["totalSongs"]; i++) {
                                         obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
                                         obj["range_length"] = 1;
