@@ -24,9 +24,9 @@ $(document).ready(function () {
         localStorage["totalSongs"] = 0;
         localStorage["currentlyPlayingWC"] = "";
         localStorage["currentlyPlaying"] = "";
-        localStorage["currentTrack"] = 0;
-        localStorage["offsetNumber"] = 0;
-        partyPlaylist = 0;
+         localStorage["currentTrack"] = 0;
+          localStorage["offsetNumber"] = 0;
+          partyPlaylist = 0;
         $.ajax({
             type: "GET",
             url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage["Snapster"] + "/tracks",
@@ -111,7 +111,7 @@ $(document).ready(function () {
                                         }, 1000);
                                     } else {    //tapped within 300ms of last tap. double tap
                                         clearTimeout(tapped); //stop single tap callback
-                                        tapped = null;
+                                        tapped = true;
                                         for (i = 0; i < localStorage["totalSongs"]; i++) {
                                             obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
                                             obj["range_length"] = 1;
@@ -135,7 +135,7 @@ $(document).ready(function () {
                                         e.preventDefault()
                                     }
                                 });
-                                $(document).on('dblclick', '#songLinkClick' + i, function () {
+                                $(document).on('click', '#songLinkClick' + i, function () {
                                     for (i = 0; i < localStorage["totalSongs"]; i++) {
                                         obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
                                         obj["range_length"] = 1;
