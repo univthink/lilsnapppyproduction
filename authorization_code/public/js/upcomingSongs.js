@@ -77,7 +77,7 @@ $(document).ready(function () {
                                 $('#results').append("<header alt='" + i + "' style='color: gray;' class='songLinkClick' id='songLinkClick" + i + "'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
                             }
                             
-                            for (i = 0; i < localStorage["songArray"].length + 1; i++) {
+                            for (i = 0; i < localStorage["totalSongs"] + 1; i++) {
                                 if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] > 3) {
                                     document.getElementById("songLinkClick" + 4).style.color = "pink";
                                     $(".songLinkClick:gt(4)").css("color", "white");
