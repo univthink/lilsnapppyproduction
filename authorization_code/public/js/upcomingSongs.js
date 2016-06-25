@@ -177,6 +177,7 @@ $(document).ready(function () {
                           }
                                         for (i = 0; i < localStorage["totalSongs"]; i++) {
                                         $(document).on('click', '#songLinkClick' + i, function () {
+                                                alert("Are you sure?");
                                                 var id = $(this).attr("id");
                                                 id = id.substr(13);
                                                 id = (id*1 + localStorage["offsetNumber"]*1);
