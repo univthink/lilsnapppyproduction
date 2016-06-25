@@ -72,7 +72,7 @@ width: 100% !important;
     }
 
    body {
-    
+
       zoom: 45% !important;
 }
 
@@ -125,7 +125,7 @@ header {
 }
 
 * {
-    overflow: visible;
+    overflow: hidden;
 }
 * {
    // font-family: 'Roboto', sans-serif !important;
