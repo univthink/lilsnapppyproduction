@@ -22,6 +22,11 @@ $(document).ready(function () {
             }
         });
         localStorage["totalSongs"] = 0;
+        localStorage["currentlyPlayingWC"] = "";
+        localStorage["currentlyPlaying"] = "";
+        localStorage["currentTrack"] = 0;
+        localStorage["offsetNumber"] = 0;
+        partyPlaylist = 0;
         $.ajax({
             type: "GET",
             url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage["Snapster"] + "/tracks",
@@ -76,7 +81,7 @@ $(document).ready(function () {
                             for (i = 0; i < currentPLData.items.length; i++) {
                                 $('#results').append("<header alt='" + i + "' style='color: gray;' class='songLinkClick' id='songLinkClick" + i + "'>" + currentPLData.items[i].track.artists[0].name + "<br />" + currentPLData.items[i].track.name + "</header><br/>");
                             }
-                            
+
                             for (i = 0; i < localStorage["totalSongs"] + 1; i++) {
                                 if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] > 3) {
                                     document.getElementById("songLinkClick" + 4).style.color = "pink";
@@ -153,9 +158,9 @@ $(document).ready(function () {
                                     });
                                     console.log(obj);
                                 });
-                                
+
                             }
-                        
+
                         }
                     });
                     playlists = [];
