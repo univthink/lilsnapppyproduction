@@ -124,14 +124,14 @@ header {
     padding-bottom: 20px;
 }
 
-* {
+body {
     overflow-x: hidden;
 }
 * {
    // font-family: 'Roboto', sans-serif !important;
 }
 div#footer2 {
-    overflow-y: hidden;
+  //  overflow-y: hidden;
 }
 button#obtain-new-token {
     visibility: hidden;
