@@ -71,9 +71,10 @@ width: 100% !important;
         color: #443f3f;
     }
 
-    body {
-        zoom: 125% !important;
-    }
+   body {
+    
+      zoom: 45% !important;
+}
 
     input#filename {
         height: 125px !important;
@@ -111,7 +112,9 @@ width: 100% !important;
         height: 100vh !important;
     }
 }
-
+body {
+    zoom: 365%;
+}
 header:nth-child(0), header:nth-child(1) {
     padding-top: 10px;
 }

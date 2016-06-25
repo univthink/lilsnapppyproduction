@@ -111,7 +111,7 @@ $(document).ready(function () {
                                         for (i = 0; i < localStorage["totalSongs"]; i++) {
                                             obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
                                             obj["range_length"] = 1;
-                                            obj["insert_before"] = parseInt(localStorage["currentTrack"]) + 3;
+                                            obj["insert_before"] = parseInt(localStorage["currentTrack"]) + 1;
                                             console.log("Clicked");
                                         }
                                         $.ajax({
@@ -136,7 +136,7 @@ $(document).ready(function () {
                                     for (i = 0; i < localStorage["totalSongs"]; i++) {
                                         obj["range_start"] = parseInt($('#songLinkClick' + i).attr('alt'));
                                         obj["range_length"] = 1;
-                                        obj["insert_before"] = parseInt(localStorage["currentTrack"]) + 3;
+                                        obj["insert_before"] = parseInt(localStorage["currentTrack"]) + 1;
                                         console.log("Clicked");
                                     }
                                     $.ajax({
