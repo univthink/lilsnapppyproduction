@@ -108,8 +108,8 @@ $(document).ready(function () {
                             }
                             console.log(localStorage["totalSongs"]);
                             for (i = 0; i < localStorage["totalSongs"]; i++) {
-                            $(document).on('tap', '#songLinkClick' + i, function () {
-                                    alert("Are you sure?");
+                            $(document).on('click', '#songLinkClick' + i, function () {
+                                  if (confirm("Are you sure?"){
                                     var id = $(this).attr("id");
                                     id = id.substr(13);
                                     id = (id*1 + localStorage["offsetNumber"]*1);
@@ -173,6 +173,7 @@ $(document).ready(function () {
                                     }
                                 });
                                 console.log(obj);
+                              }
                             });
                           }
                                         for (i = 0; i < localStorage["totalSongs"]; i++) {
