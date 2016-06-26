@@ -11,7 +11,22 @@ $(document).ready(function () {
             localStorage['userID'] = userData.id;
             userID = localStorage['userID'];
         }
-    });
+    });  $.ajax({
+         type: "GET",
+         url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
+         headers: { 'Authorization': 'Bearer ' + access_token },
+         dataType: "json",
+         data: "formdata",
+         success: function (data) {
+             for (i = 0; i < data.items.length; i++) {
+                 playlists.push(data.items[i].name);
+             }
+             if (playlists.indexOf("Partify") > -1) {
+               partyPlaylist = playlists.indexOf("Partify");
+               localStorage["Snapster"] = data.items[partyPlaylist].id;
+             }
+           }
+           });
         $("#filename").keypress(function (event) {
             if (event.which === 13) {
                  $.ajax({
@@ -42,7 +57,6 @@ $(document).ready(function () {
                                         dataType: "json",
                                         data: "formdata",
                                         success: function (data) {
-                                            runSongjs();
                                             localStorage['Snapster'] = data.items[partyPlaylist].id;
                                             Snapster = localStorage['Snapster'];
                                         }

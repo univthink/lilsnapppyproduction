@@ -62,7 +62,7 @@ $(document).ready(function () {
                                     for (i = 0; i < myData.tracks.items.length; i++) {
                                         $('#results').append("<header class='songLink'>" + myData.tracks.items[i].artists[0].name + "<br />" + myData.tracks.items[i].name + "</header><br/>");
                                         $(".songLink").eq(i).attr("id", "songLink" + i);
-                                        $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + Snapster + "/tracks?&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
+                                        $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + localStorage['Snapster'] + "/tracks?&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
                                         $('header#songLink' + i).on("click", function () {
                                             $.ajax({
                                                 type: "POST",
@@ -76,7 +76,7 @@ $(document).ready(function () {
                                                     $("#results").css("text-align", "center");
                                                     $.ajax({
                                                         type: "GET",
-                                                        url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + Snapster + "/tracks",
+                                                        url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage['Snapster'] + "/tracks",
                                                         headers: { 'Authorization': 'Bearer ' + access_token },
                                                         dataType: "json",
                                                         data: "formdata",
@@ -88,7 +88,11 @@ $(document).ready(function () {
                                                             }
                                                             $.ajax( {
                                                                 type: "GET",
+<<<<<<< HEAD
                                                                 url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + Snapster + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
+=======
+                                                                url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage['Snapster'] + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
+>>>>>>> 9a196870678efea9b82b8bb55000873361f02226
                                                                 headers: { 'Authorization': 'Bearer ' + access_token },
                                                                 dataType: "json",
                                                                 data: "formdata",

@@ -73,7 +73,7 @@ $(document).ready(function () {
                     $("#results").css("text-align", "center");
                     $.ajax( {
                         type: "GET",
-                        url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + Snapster + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
+                        url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage['Snapster'] + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
                         headers: { 'Authorization': 'Bearer ' + access_token },
                         dataType: "json",
                         data: "formdata",
@@ -106,10 +106,18 @@ $(document).ready(function () {
                                 }
 
                             }
+<<<<<<< HEAD
                             console.log(localStorage["totalSongs"]);
                             for (i = 0; i < localStorage["totalSongs"]; i++) {
                             $(document).on('click', '#songLinkClick' + i, function () {
                                   if (confirm("Are you sure?"){
+=======
+                          console.log(localStorage["totalSongs"]);
+                            for (i = 0; i < localStorage["totalSongs"]; i++) {
+                              if ($(window).width() < 500) {
+                            $(document).on('click', '#songLinkClick' + i, function () {
+                                    if (confirm("Are you sure?")) {
+>>>>>>> 9a196870678efea9b82b8bb55000873361f02226
                                     var id = $(this).attr("id");
                                     id = id.substr(13);
                                     id = (id*1 + localStorage["offsetNumber"]*1);
@@ -135,7 +143,11 @@ $(document).ready(function () {
                                         id = 0;
                                         $.ajax( {
                                             type: "GET",
+<<<<<<< HEAD
                                             url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + Snapster + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
+=======
+                                            url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage['Snapster'] + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
+>>>>>>> 9a196870678efea9b82b8bb55000873361f02226
                                             headers: { 'Authorization': 'Bearer ' + access_token },
                                             dataType: "json",
                                             data: "formdata",
@@ -176,6 +188,10 @@ $(document).ready(function () {
                               }
                             });
                           }
+<<<<<<< HEAD
+=======
+                        }
+>>>>>>> 9a196870678efea9b82b8bb55000873361f02226
                                         for (i = 0; i < localStorage["totalSongs"]; i++) {
                                         $(document).on('dblclick', '#songLinkClick' + i, function () {
                                               if (confirm("Are you sure?")) {
@@ -204,7 +220,11 @@ $(document).ready(function () {
                                                     id = 0;
                                                     $.ajax( {
                                                         type: "GET",
+<<<<<<< HEAD
                                                         url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + Snapster + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
+=======
+                                                        url: "https://api.spotify.com/v1/users/" + userID + "/playlists/" + localStorage['Snapster'] + "/tracks?limit=100&offset=" + localStorage["offsetNumber"],
+>>>>>>> 9a196870678efea9b82b8bb55000873361f02226
                                                         headers: { 'Authorization': 'Bearer ' + access_token },
                                                         dataType: "json",
                                                         data: "formdata",
@@ -256,5 +276,31 @@ $(document).ready(function () {
         });
 
     }
+<<<<<<< HEAD
 
+=======
+    for (i = 0; i < localStorage["totalSongs"] + 1; i++) {
+        if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] > 3) {
+            document.getElementById("songLinkClick" + 4).style.color = "pink";
+            $(".songLinkClick:gt(4)").css("color", "white");
+        }
+        else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 0) {
+            document.getElementById("songLinkClick" + 0).style.color = "pink";
+            $(".songLinkClick:gt(0)").css("color", "white");
+        }
+        else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 1) {
+            document.getElementById("songLinkClick" + 1).style.color = "pink";
+            $(".songLinkClick:gt(1)").css("color", "white");
+        }
+        else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 2) {
+            document.getElementById("songLinkClick" + 2).style.color = "pink";
+            $(".songLinkClick:gt(2)").css("color", "white");
+        }
+        else if (i >= localStorage["currentTrack"] && localStorage["currentTrack"] == 3) {
+            document.getElementById("songLinkClick" + 3).style.color = "pink";
+            $(".songLinkClick:gt(3)").css("color", "white");
+        }
+
+    }
+>>>>>>> 9a196870678efea9b82b8bb55000873361f02226
 });
