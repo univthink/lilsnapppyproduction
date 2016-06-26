@@ -17,6 +17,49 @@ $(document).ready(function () {
     $('#infoHeader').empty();
     $('#infoHeader').append("Upcoming Songs");
     if (localStorage.getItem("lastFM") != "null" || localStorage.getItem("lastFM") != "") {
+      $.ajax({
+         type: "GET",
+         url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
+         headers: { 'Authorization': 'Bearer ' + access_token },
+         dataType: "json",
+         data: "formdata",
+         success: function (data) {
+             for (i = 0; i < data.items.length; i++) {
+                 playlists.push(data.items[i].name);
+             }
+             if (playlists.indexOf("Partify") == -1) {
+                 baseURL = "https://api.spotify.com/v1/users/";
+                 searchQry = document.getElementById('filename').value;
+                 sendInfo = { "name": "Partify", "public": true, }
+                 $.ajax({
+                     type: "POST",
+                     url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
+                     headers: { 'Authorization': 'Bearer ' + access_token },
+                     dataType: "application/json",
+                     data: JSON.stringify(sendInfo),
+                     success: function (dataFirst) {
+                         $.ajax({
+                             type: "GET",
+                             url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
+                             headers: { 'Authorization': 'Bearer ' + access_token },
+                             dataType: "json",
+                             data: "formdata",
+                             success: function (data) {
+                               localStorage.setItem('Snapster', data.items[partyPlaylist].id);
+                              Snapster = localStorage['Snapster'];
+                             }
+                         });
+                     }
+                 });
+             }
+             else {
+               partyPlaylist = playlists.indexOf("Partify");
+               localStorage.setItem('Snapster', data.items[partyPlaylist].id);
+               console.log("Awesome");
+             }
+
+         }
+     });
         $.ajax({
             type: "GET",
             url: "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=" + localStorage.getItem("lastFM") + "&api_key=9fc54977379828d52d1d779dc62f569b&format=json",
@@ -281,4 +324,5 @@ $(document).ready(function () {
         }
 
     }
+
 });
